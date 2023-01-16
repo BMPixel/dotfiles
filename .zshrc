@@ -1,22 +1,11 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by interactive shells
-#
-
-# -----------------
-# Zsh configuration
-# -----------------
-
-#
-# History
-#
+# directly launch tmux if in kitty
+if [[ $TERM = "xterm-kitty" ]]; then
+  echo "launching tmux"
+  tmux new -As0
+fi
 
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
-
-#
-# Input/output
-#
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
@@ -25,7 +14,7 @@ bindkey -e
 setopt CORRECT
 
 # Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
@@ -155,8 +144,10 @@ export PATH="/Users/panwenbo/.nvm/versions/node/v19.3.0/bin:$PATH"
 # Set default editor
 export EDITOR="code"
 
+
 # source ~/.bash_aliases if it exists
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Soft link other .dotfile
 ln -s $PWD/.tmux.conf ~/.tmux.conf
 ln -s $PWD/.bash_aliases ~/.bash_aliases
