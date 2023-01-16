@@ -5,13 +5,13 @@ ln -s $PWD/.bash_aliases ~/.bash_aliases
 # Link zshrc
 if [ $SHELL = "/bin/zsh" ]; then
   ln -s $PWD/.zshrc ~/.zshrc
-  source ~/.zshrc
+  . ~/.zshrc
 fi
 
 # Link bashrc
 if [ $SHELL = "/bin/bash" ]; then
   ln -s $PWD/.bashrc ~/.bashrc
-  source ~/.bashrc
+  . ~/.bashrc
 fi
 
 # Quit if not Linux

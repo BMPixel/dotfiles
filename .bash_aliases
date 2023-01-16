@@ -3,7 +3,9 @@ notify() {
 }
 
 # Something that is agressive
-alias cd='pushd'
+cd() {
+    pushd $1;
+}
 alias ..='cd ..'
 
 # Basic aliases
