@@ -50,7 +50,7 @@ install() {
   if [ -x "$(command -v yum)" ]; then
     echo 'Install with yum.'
     # tmux with newest version must be installed with this repo
-    sudo yum install http://galaxy4.net/repo/galaxy4-release-7-current.noarch.rpm
+    yum install http://galaxy4.net/repo/galaxy4-release-7-current.noarch.rpm
     yum install -y tmux git
 
     # Install bat
@@ -63,6 +63,13 @@ install() {
   for file in ${dot_file_list[@]}; do
     link_home_file $file
   done
+
+  # source .bashrc or .zshrc
+  if [ $SHELL = "/bin/bash" ]; then
+    source ~/.bashrc
+  elif [ $SHELL = "/bin/zsh" ]; then
+    source ~/.zshrc
+  fi
 }
 
 uninstall() {
