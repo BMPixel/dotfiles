@@ -54,7 +54,7 @@ install() {
     yum install -y tmux git
 
     # Install bat
-    wget -c http://repo.openfusion.net/centos7-x86_64/bat-0.7.0-1.of.el7.x86_64.rpm
+    wget -c http://repo.openfusion.net/centos7-x86_64/bat-0.7.0-1.of.el7.x86_64.rpm --no-check-certificate
     yum install -y bat-0.7.0-1.of.el7.x86_64.rpm
     rm bat-0.7.0-1.of.el7.x86_64.rpm
   fi
