@@ -14,10 +14,6 @@ alias du='du -h -d 1'
 alias which='type -a'
 alias l='ll -Al'
 
-# Install aliases
-alias apt-get='sudo apt-get'
-alias yum='sudo yum'
-
 # Ip aliases
 # 本机 ip 地址
 alias ipl='ipconfig getifaddr en0'
@@ -27,3 +23,7 @@ alias ipp2='curl icanhazip.com'
 # python aliases
 alias py='python'
 alias pi='pip install'
+
+if [ -x "$(command -v bat)" ]; then
+  alias cat='bat --paging never'
+fi
