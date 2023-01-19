@@ -50,7 +50,7 @@ install() {
   if [ -x "$(command -v yum)" ]; then
     echo 'Install with yum.'
     # tmux with newest version must be installed with this repo
-    yum install http://galaxy4.net/repo/galaxy4-release-7-current.noarch.rpm
+    yum install -y http://galaxy4.net/repo/galaxy4-release-7-current.noarch.rpm
     yum install -y tmux git
 
     # Install bat
