@@ -6,6 +6,7 @@ if [ $SHELL != "/bin/bash" ]; then
     return
 fi
 
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

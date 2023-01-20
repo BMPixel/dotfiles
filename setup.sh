@@ -53,7 +53,7 @@ uninstall() {
   fi
 }
 
-dot_file_list=('.bash_aliases' '.tmux.conf' '.bashrc' '.zshrc')
+dot_file_list=('.bash_aliases' '.tmux.conf' '.bashrc' '.zshrc' '.gitconfig')
 install() {
   # Install tmux, git, bat
   if [ -x "$(command -v apt_get)" ]; then
