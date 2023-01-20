@@ -13,16 +13,18 @@ link_home_file() {
   # if $1 is a file, then backup it and link it.
   if [ -f ~/$1 ]; then
     bat --paging never ~/$1
-    read -p "Do you want to backup your $1? [y/n]" answer
+x    read -p "Do you want to backup your $1? [(y)es|(o)verwrite|(s)kip]" answer
     if [ "$answer" != "${answer#[Yy]}" ] ;then
         mv ~/$1 ~/$1.bak
         ln -s $PWD/config/$1 ~/$1
-    else 
-        echo "Does not backup your $1. link stopped."
+    elif [ "$answer" != "${answer#[Oo]}" ] ;then
+        # Overwrite
+        rm ~/$1
+        ln -s $PWD/config/$1 ~/$1  
+    else
+        echo "Skip $1"
     fi
-    
-    # if $1 is not a file or a soft link, then link it.
-  else 
+  else
     echo "No $1 found."
     ln -s $PWD/config/$1 ~/$1
   fi
@@ -37,19 +39,6 @@ unlink_home_file() {
       mv ~/$1.bak ~/$1
       echo "Recover $1 from $1.bak"
     fi
-  fi
-}
-
-uninstall() {
-# Unlink all files
-  for file in ${dot_file_list[@]}; do
-    unlink_home_file $file
-  done
-  # source original .bashrc or .zshrc if it exists
-  if [ $SHELL = "/bin/bash" ]; then
-    test -f ~/.bashrc && source ~/.bashrc
-  elif [ $SHELL = "/bin/zsh" ]; then
-    test -f ~/.zshrc && source ~/.zshrc
   fi
 }
 
@@ -84,6 +73,19 @@ install() {
     source ~/.bashrc
   elif [ $SHELL = "/bin/zsh" ]; then
     source ~/.zshrc
+  fi
+}
+
+uninstall() {
+# Unlink all files
+  for file in ${dot_file_list[@]}; do
+    unlink_home_file $file
+  done
+  # source original .bashrc or .zshrc if it exists
+  if [ $SHELL = "/bin/bash" ]; then
+    test -f ~/.bashrc && source ~/.bashrc
+  elif [ $SHELL = "/bin/zsh" ]; then
+    test -f ~/.zshrc && source ~/.zshrc
   fi
 }
 
