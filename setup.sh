@@ -41,7 +41,7 @@ unlink_home_file() {
 }
 
 uninstall() {
-  # Unlink all files
+# Unlink all files
   for file in ${dot_file_list[@]}; do
     unlink_home_file $file
   done
