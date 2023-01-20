@@ -13,7 +13,7 @@ link_home_file() {
   # if $1 is a file, then backup it and link it.
   if [ -f ~/$1 ]; then
     bat --paging never ~/$1
-x    read -p "Do you want to backup your $1? [(y)es|(o)verwrite|(s)kip]" answer
+    read -p "Do you want to backup your $1? [(y)es|(o)verwrite|(s)kip]" answer
     if [ "$answer" != "${answer#[Yy]}" ] ;then
         mv ~/$1 ~/$1.bak
         ln -s $PWD/config/$1 ~/$1
