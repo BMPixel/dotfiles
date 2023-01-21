@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!zsh
 # This script is used to install dotfile into devcontainer
 
 # install zsh-autosuggestions
