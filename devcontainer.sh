@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 # This script is used to install dotfile into devcontainer
 
 # install zsh-autosuggestions
@@ -9,7 +10,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # install starship
 # save install script to /tmp
 curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh
-/tmp/install.sh --yes
+sh /tmp/install.sh --yes
 
 # Soft link .dotfile
 link_home_file() {
