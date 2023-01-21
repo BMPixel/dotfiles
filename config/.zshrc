@@ -124,22 +124,19 @@ source <(/usr/local/bin/starship init zsh --print-full-init)
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/panwenbo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/panwenbo/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/panwenbo/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/panwenbo/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/panwenbo/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/panwenbo/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/panwenbo/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/panwenbo/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
-
-# nvm initialze, seems slow. So disable it and only add nvm to path
-export PATH="/Users/panwenbo/.nvm/versions/node/v19.3.0/bin:$PATH"
 
 # Set default editor
 export EDITOR="code"
