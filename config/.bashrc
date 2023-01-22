@@ -136,3 +136,5 @@ export PROMPT_DIRTRIM=4
 
 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -12,18 +12,32 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh
 sh /tmp/install.sh --yes > /dev/null
 
-# Install tmux, bat, fzf with apt_get
+# Install enhancd
+git clone https://github.com/b4b4r07/enhancd ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/enhancd
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git /tmp/fzf
+/tmp/fzf/install --all
+
+# Install tmux, bat, fzf and ripgrep
+#  with apt_get
 if [ -x "$(command -v apt_get)" ]; then
   echo 'Install with apt_get.'
   sudo apt_get update
-  sudo apt_get install -y tmux bat fzf
+  sudo apt_get install -y tmux bat ripgrep
 fi
 
 # Install with apk in alpine
 if [ -x "$(command -v apk)" ]; then
   echo 'Install with apk.'
   sudo apk update
-  sudo apk add tmux bat fzf
+  sudo apk add tmux bat ripgrep
+fi
+
+# Install with brew in macos
+if [ -x "$(command -v brew)" ]; then
+  echo 'Install with brew.'
+  brew install tmux bat ripgrep
 fi
 
 # Install with yum is hard like hell, so I just give up.
@@ -66,6 +80,7 @@ link_home_file config/.bash_aliases .bash_aliases
 link_home_file config/.bashrc .bashrc
 link_home_file config/.gitconfig .gitconfig
 link_home_file config/.tmux.conf .tmux.conf
+
 # if .config does not exist, create it
 if [ ! -d ~/.config ]; then
   mkdir ~/.config

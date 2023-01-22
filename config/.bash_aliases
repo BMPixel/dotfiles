@@ -2,8 +2,6 @@ notify() {
     curl "https://api2.pushdeer.com/message/push?pushkey=PDU19399Td20CW0cajednaRzvtmLISIKfjKg4pvQ3&text=$1" > /dev/null 2>&1
 }
 
-alias ..='cd ..'
-
 # Basic aliases
 alias netstat='netstat -tulpn'
 alias lsof='lsof -i'
