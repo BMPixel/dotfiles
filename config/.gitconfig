@@ -4,7 +4,7 @@
 [init]
 	defaultBranch = main
 [credential]
-	helper = "!f() { /home/vscode/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b503ca0534/node /tmp/vscode-remote-containers-5659d859f105f66b9a54e96c38c56b277ce6d4fd.js $*; }; f"
+	helper = "!f() { /home/vscode/.vscode-server/bin/97dec172d3256f8ca4bfb2143f3f76b503ca0534/node /tmp/vscode-remote-containers-fee86459c026a2fc558658ae75fe143cfc3f1112.js $*; }; f"
 [alias]
 	co = checkout
 	ci = commit
