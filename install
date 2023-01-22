@@ -10,7 +10,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # install starship
 # save install script to /tmp
 curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh
-sh /tmp/install.sh --yes
+sh /tmp/install.sh --yes > /dev/null
 
 DIR=$(SELF=$(dirname "$0") && bash -c "cd \"$SELF\" && pwd")
 
@@ -18,24 +18,22 @@ DIR=$(SELF=$(dirname "$0") && bash -c "cd \"$SELF\" && pwd")
 # Soft link .dotfile
 link_home_file() {
   # if $1 is already a symlink, then overwrite it.
-  if [ -L ~/$1 ]; then
-    rm ~/$1
-    ln -s $DIR/config/$1 ~/$1
-    echo "Overwrite $1"
+  if [ -L ~/$2 ]; then
+    rm ~/$2
+    ln -s $DIR/$1 ~/$2
+    echo "Overwrite $2"
     return
   fi
   
   # if $1 is a file, then backup it and link it.
-  if [ -f ~/$1 ]; then
-    mv ~/$1 ~/$1.bak
+  if [ -f ~/$2 ]; then
+    mv ~/$2 ~/$2.bak
   else
-    echo "No $1 found. Linked it."
+    echo "No $2 found. Linked it."
   fi
-  ln -s $DIR/config/$1 ~/$1
+  ln -s $DIR/$1 ~/$2
 }
 
-
-dot_file_list=('.bash_aliases' '.tmux.conf' '.bashrc' '.zshrc' '.gitconfig')
 
 # Install tmux, git, bat
 if [ -x "$(command -v apt_get)" ]; then
@@ -57,9 +55,12 @@ if [ -x "$(command -v yum)" ]; then
 fi
 
 # Link all files
-for file in ${dot_file_list[@]}; do
-  link_home_file $file
-done
+link_home_file config/.zshrc .zshrc
+link_home_file config/.bash_aliases .bash_aliases
+link_home_file config/.bashrc .bashrc
+link_home_file config/.gitconfig .gitconfig
+link_home_file config/.tmux.conf .tmux.conf
+link_home_file config/starship.toml .config/starship.toml
 
 # source .bashrc or .zshrc
 exec zsh
