@@ -60,6 +60,10 @@ link_home_file config/.bash_aliases .bash_aliases
 link_home_file config/.bashrc .bashrc
 link_home_file config/.gitconfig .gitconfig
 link_home_file config/.tmux.conf .tmux.conf
+# if .config does not exist, create it
+if [ ! -d ~/.config ]; then
+  mkdir ~/.config
+fi
 link_home_file config/starship.toml .config/starship.toml
 
 # source .bashrc or .zshrc
