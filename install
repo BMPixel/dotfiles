@@ -12,12 +12,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh
 sh /tmp/install.sh --yes > /dev/null
 
-# Install enhancd
-git clone https://github.com/b4b4r07/enhancd ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/enhancd
-
 # Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git /tmp/fzf
-/tmp/fzf/install --all
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
 
 # Install tmux, bat, fzf and ripgrep
 #  with apt_get
