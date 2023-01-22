@@ -12,12 +12,15 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh
 sh /tmp/install.sh --yes
 
+DIR=$(SELF=$(dirname "$0") && bash -c "cd \"$SELF\" && pwd")
+
+
 # Soft link .dotfile
 link_home_file() {
   # if $1 is already a symlink, then overwrite it.
   if [ -L ~/$1 ]; then
     rm ~/$1
-    ln -s $PWD/config/$1 ~/$1
+    ln -s $DIR/config/$1 ~/$1
     echo "Overwrite $1"
     return
   fi
@@ -28,7 +31,7 @@ link_home_file() {
   else
     echo "No $1 found. Linked it."
   fi
-  ln -s $PWD/config/$1 ~/$1
+  ln -s $DIR/config/$1 ~/$1
 }
 
 
