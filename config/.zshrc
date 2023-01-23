@@ -18,10 +18,11 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
-    fzf
+    zsh-interactive-cd
     dotenv
     pip
     docker
+    fzf
     )
 
 # Load the oh-my-zsh's completion system
