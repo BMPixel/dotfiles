@@ -19,10 +19,12 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-interactive-cd
+    thefuck
     dotenv
-    pip
+    pip 
     docker
     fzf
+    fd
     )
 
 # Load the oh-my-zsh's completion system
@@ -31,13 +33,23 @@ autoload -Uz compinit && compinit
 # init starship
 eval "$(starship init zsh)"
 
-# source ~/.bash_aliases if it exists
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+# init thefuck if it exists
+if [ -x "$(command -v thefuck)" ]; then
+    eval $(thefuck --alias)
 fi
 
+# Set default command to search home files
+export FZF_DEFAULT_COMMAND="fd . /"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . /"
+# init fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# source ~/.bash_aliases if it exists
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
