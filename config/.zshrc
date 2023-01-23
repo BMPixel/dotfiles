@@ -39,9 +39,9 @@ if [ -x "$(command -v thefuck)" ]; then
 fi
 
 # Set default command to search home files
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+# export FZF_DEFAULT_COMMAND="fd . $HOME"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 # init fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
