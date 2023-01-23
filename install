@@ -14,27 +14,38 @@ sh /tmp/install.sh --yes > /dev/null
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+~/.fzf/install --all > /dev/null
+
+# Instal thefuck with pip if pip is installed
+if [ -x "$(command -v pip)" ]; then
+  pip install thefuck
+fi
 
 # Install tmux, bat, fzf and ripgrep
-#  with apt_get
-if [ -x "$(command -v apt_get)" ]; then
-  echo 'Install with apt_get.'
-  sudo apt_get update
-  sudo apt_get install -y tmux bat ripgrep
+#  with apt-get
+if [ -x "$(command -v apt-get)" ]; then
+  echo 'Install with apt-get.'
+  sudo apt-get update
+  sudo apt-get install -y tmux bat ripgrep fd-find
+
+  # bat is named batcat in ubuntu, so we need to link it to bat
+  mkdir -p ~/.local/bin
+  ln -s /usr/bin/batcat ~/.local/bin/bat
+  # Same thing applies to fd
+  ln -s /usr/bin/fdfind ~/.local/bin/fd
 fi
 
 # Install with apk in alpine
 if [ -x "$(command -v apk)" ]; then
   echo 'Install with apk.'
   sudo apk update
-  sudo apk add tmux bat ripgrep
+  sudo apk add tmux bat ripgrep fd
 fi
 
 # Install with brew in macos
 if [ -x "$(command -v brew)" ]; then
   echo 'Install with brew.'
-  brew install tmux bat ripgrep
+  brew install tmux bat ripgrep fd
 fi
 
 # Install with yum is hard like hell, so I just give up.
