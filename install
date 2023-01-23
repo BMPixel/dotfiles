@@ -13,8 +13,8 @@ curl -fsSL https://starship.rs/install.sh -o /tmp/install.sh
 sh /tmp/install.sh --yes > /dev/null
 
 # Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all > /dev/null
+git clone --depth 1 https://github.com/junegunn/fzf.git tmp/fzf
+tmp/fzf/install --all > /dev/null
 
 # Instal thefuck with pip if pip is installed
 if [ -x "$(command -v pip)" ]; then
