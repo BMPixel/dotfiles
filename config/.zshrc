@@ -19,12 +19,13 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-interactive-cd
-    thefuck
+    # thefuck
     dotenv
     pip 
     docker
     fzf
     fd
+    golang
     )
 
 # Load the oh-my-zsh's completion system
